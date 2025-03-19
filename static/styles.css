@@ -4,49 +4,29 @@ body {
   padding: 0;
   background-color: #1D1D1B;
   color: white;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 60px; /* Ajuste la hauteur du footer */
+  box-sizing: border-box;
 }
-
 header {
   background: #0B2294;
   color: white;
   padding: 20px 50px;
-  text-align: center;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  border-bottom: 3px solid #ffffff33;
+  text-align: center;
 }
-
 header img {
   width: 120px;
   height: auto;
   border-radius: 10px;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 20px;
-}
 
-nav ul li {
-  display: inline;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 10px 15px;
-  transition: all 0.3s ease;
-}
-
-nav ul li a:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-}
 
 section {
   margin: 40px auto;
@@ -59,12 +39,75 @@ section {
   color: #1D1D1B;
 }
 
-h2 {
-  color: #2c3e50;
-  font-size: 28px;
-  margin-bottom: 15px;
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 25px;
 }
 
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+nav ul li a:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.section-container {
+  margin: 50px auto;
+  padding: 40px;
+  max-width: 1000px;
+  background: #a8a7ac;
+  border-radius: 12px;
+  box-shadow: 0px 6px 20px rgba(255, 255, 255, 0.3);
+  text-align: center;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.event-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #949494;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
+  margin-bottom: 15px;
+  border-color: #000000;
+  
+}
+
+.inscription-btn {
+  padding: 10px 15px;
+  background: #0B2294;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
+  transition: background 0.3s;
+}
+
+.inscription-btn:hover {
+  background: #062277;
+}
 img {
   max-width: 100%;
   height: auto;
@@ -92,6 +135,7 @@ input, textarea {
   width: 100%;
   max-width: 500px;
   background: #fff;
+  border: #000000;
 }
 
 button {
@@ -115,9 +159,14 @@ footer {
   padding: 20px;
   background: #2c3e50;
   color: white;
-  margin-top: 40px;
   font-size: 14px;
-  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2);
+  border-top: 3px solid #ffffff33;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  bottom: 0;
+  width: 97%;
+  height: 60px; /* Ajuste la hauteur si nécessaire */
+  align-items: center;
 }
 .carousel-container {
   width: 50%;
@@ -127,15 +176,13 @@ footer {
   flex-direction: column;
   gap: var(--lx-gap);
   align-items: center;
-  border-radius: 10px;
 
   .carousel {
-    aspect-ratio: 4/5;
+    aspect-ratio: 4/6;
     width: 45%;
     position: relative;
     overflow: hidden;
-    border-radius: 400px;
-
+    border-radius: 10px;
     .item {
       opacity: 0;
       width: 100%;

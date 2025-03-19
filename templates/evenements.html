@@ -8,33 +8,39 @@
 </head>
 <body>
     <header>
-
-        <img src="../static/logo.jpeg" alt="Tournoi de football">
-        <div class="texte">
-        <h1>Bienvenue sur le site du BDS</h1>
-        <nav>
-            <ul>
-                <li><a href="../templates/index.html">Présentation</a></li>
-                <li><a href="../templates/evenements.html">Événements</a></li>
-                <li><a href="../templates/galerie.html">Galerie</a></li>
-                <li><a href="../templates/contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <img src="../static/logo.jpeg" alt="Logo BDS" class="logo">
+        <div class="header-text">
+            <h1>Bienvenue sur le site du BDS</h1>
+            <nav>
+                <ul>
+                    <li><a href="../templates/index.html">Présentation</a></li>
+                    <li><a href="../templates/evenements.html">Événements</a></li>
+                    <li><a href="../templates/galerie.html">Galerie</a></li>
+                    <li><a href="../templates/contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <img src="../static/logo.jpeg" alt="Tournoi de football">
+        <img src="../static/logo.jpeg" alt="Logo BDS" class="logo">
     </header>
     
-    <section id="evenements">
+    <section id="evenements" class="section-container">
         <h2>Événements à venir</h2>
-        <ul>
-            <li>Tournoi de football - 15 avril</li>
-            <li>Compétition de natation - 22 avril</li>
-            <li>Course inter-écoles - 5 mai</li>
-        </ul>
+        <div class="event-box">
+            <p><strong>Tournoi de football</strong> - 15 avril</p>
+            <button class="inscription-btn">S'inscrire</button>
+        </div>
+        <div class="event-box">
+            <p><strong>Compétition de natation</strong> - 22 avril</p>
+            <button class="inscription-btn">S'inscrire</button>
+        </div>
+        <div class="event-box">
+            <p><strong>Course inter-écoles</strong> - 5 mai</p>
+            <button class="inscription-btn">S'inscrire</button>
+        </div>
     </section>
     
-    
-
+    <footer>
+        <p>&copy; 2024 Bureau Des Sports - École | Tous droits réservés.</p>
+    </footer>
 </body>
 </html>
-
