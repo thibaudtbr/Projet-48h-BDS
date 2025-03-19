@@ -157,7 +157,7 @@ button:hover {
 footer {
   text-align: center;
   padding: 20px;
-  background: #2c3e50;
+  background: #0B2294;
   color: white;
   font-size: 14px;
   border-top: 3px solid #ffffff33;
@@ -165,7 +165,7 @@ footer {
   position: absolute;
   bottom: 0;
   width: 97%;
-  height: 60px; /* Ajuste la hauteur si nécessaire */
+  height: 40px; /* Ajuste la hauteur si nécessaire */
   align-items: center;
 }
 .carousel-container {
@@ -242,11 +242,11 @@ footer {
   }
 
   .prev {
-    left: 10%;
+    left: 12%;
   }
 
   .next {
-    right: 10%;
+    right: 12%;
   }
 
   .dots {
