@@ -18,7 +18,10 @@
                 <li><a href= "/evenement.html">Événements</a></li>
                 <li><a href="/galerie.html">Membre du BDS</a></li>
                 <li><a href="/contact.html">Contact</a></li>
-            </ul>
+                <li id="connexionLink"><a href="/login.html">Connexion</a></li>
+                <li id="inscriptionLink"><a href="/register.html">Inscription</a></li>
+                <li id="compteLink" style="display:none;"><a href="/compte.html">Mon compte</a></li>
+        </ul>
         </nav>
         </div>
     </header>
@@ -170,7 +173,29 @@
     </insta>
 </container>
     
-
+<script>
+    // Vérification de la session via un appel API
+    async function checkSession() {
+        const response = await fetch('/check-session');
+        const result = await response.json();
+  
+        if (result.isLoggedIn) {
+            // Si connecté, remplacer les liens Connexion et Inscription par Mon compte
+            document.getElementById("connexionLink").style.display = "none";
+            document.getElementById("inscriptionLink").style.display = "none";
+            document.getElementById("compteLink").style.display = "block";
+        } else {
+            // Sinon, afficher les liens Connexion et Inscription
+            document.getElementById("connexionLink").style.display = "block";
+            document.getElementById("inscriptionLink").style.display = "block";
+            document.getElementById("compteLink").style.display = "none";
+        }
+    }
+  
+    // Appeler la fonction pour vérifier la session dès que la page est chargée
+    checkSession();
+  </script>
+  
 
 
 </body>

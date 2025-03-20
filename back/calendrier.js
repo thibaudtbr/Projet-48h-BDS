@@ -1,52 +1,44 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Sélectionne la div où mettre le calendrier
-    var calendarEl = document.getElementById("calendar");
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: "timeGridWeek",
-        locale: "fr",
-        slotMinTime: "08:00:00",
-        slotMaxTime: "22:00:00",
+document.addEventListener('DOMContentLoaded', function() {
+    let calendarEl = document.getElementById('calendar');
+    let calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        locale: 'fr',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
         events: []
     });
-
     calendar.render();
 
-    // Gestion du fichier Excel
-    document.getElementById("uploadExcel").addEventListener("change", function (event) {
-        var file = event.target.files[0];
-        if (file) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                var data = new Uint8Array(e.target.result);
-                var workbook = XLSX.read(data, { type: "array" });
+    // Chargement du fichier Excel
+    fetch('./Planning_BDS.xlsx') // Assurez-vous que le chemin est correct
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Impossible de charger le fichier : ${response.statusText}`);
+            }
+            return response.arrayBuffer();
+        })
+        .then(data => {
+            let workbook = XLSX.read(data, { type: "array", cellText: false, cellDates: true });
+            let sheet = workbook.Sheets[workbook.SheetNames[0]];
+            let json = XLSX.utils.sheet_to_json(sheet, { raw: false });
 
-                // Lire la première feuille du fichier Excel
-                var sheet = workbook.Sheets[workbook.SheetNames[0]];
-                var json = XLSX.utils.sheet_to_json(sheet);
+            // Vérifiez les données extraites
+            console.log("Données Excel :", json);
 
-                // Transformation des données en événements pour le calendrier
-                var events = json.map(row => {
-                    return {
-                        title: row["Titre"] || "Événement",
-                        start: convertExcelDate(row["Date Début"]),
-                        end: convertExcelDate(row["Date Fin"]),
-                        description: row["Description"] || ""
-                    };
-                });
+            // Transformation en événements pour le calendrier
+            let events = json.map(row => ({
+                title: row["Titre"] || "Événement",
+                start: row["Date Début"] || null,
+                end: row["Date Fin"] || null,
+                description: row["Description"] || ""
+            }));
 
-                // Ajout des événements au calendrier
-                calendar.addEventSource(events);
-            };
-            reader.readAsArrayBuffer(file);
-        }
-    });
+            console.log("Événements ajoutés :", events);
 
-    // Fonction pour convertir une date Excel en format lisible
-    function convertExcelDate(serial) {
-        if (!serial) return null;
-        var utc_days = Math.floor(serial - 25569);
-        var utc_value = utc_days * 86400;
-        var date_info = new Date(utc_value * 1000);
-        return date_info.toISOString();
-    }
+            calendar.addEventSource(events);
+        })
+        .catch(error => console.error("Erreur lors du chargement du fichier Excel :", error));
 });

@@ -61,5 +61,28 @@
             }
         });
     </script>
+    <script>
+        // Vérification de la session via un appel API
+        async function checkSession() {
+            const response = await fetch('/check-session');
+            const result = await response.json();
+      
+            if (result.isLoggedIn) {
+                // Si connecté, remplacer les liens Connexion et Inscription par Mon compte
+                document.getElementById("connexionLink").style.display = "none";
+                document.getElementById("inscriptionLink").style.display = "none";
+                document.getElementById("compteLink").style.display = "block";
+            } else {
+                // Sinon, afficher les liens Connexion et Inscription
+                document.getElementById("connexionLink").style.display = "block";
+                document.getElementById("inscriptionLink").style.display = "block";
+                document.getElementById("compteLink").style.display = "none";
+            }
+        }
+      
+        // Appeler la fonction pour vérifier la session dès que la page est chargée
+        checkSession();
+      </script>
+      
     </body>
 </html>

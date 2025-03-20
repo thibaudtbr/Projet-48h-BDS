@@ -1,5 +1,7 @@
 const express = require("express");
+const nodemailer = require('nodemailer');
 const sqlite3 = require("sqlite3").verbose();
+const bodyParser = require('body-parser');
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 const path = require("path");
@@ -40,6 +42,43 @@ app.get("/contact.html", (req, res) => res.sendFile(path.join(__dirname, "/templ
 app.get("/login.html", (req, res) => res.sendFile(path.join(__dirname, "/templates/login.html")));
 app.get("/register.html", (req, res) => res.sendFile(path.join(__dirname, "/templates/register.html")));
 app.get("/compte.html", (req, res) => res.sendFile(path.join(__dirname, "/templates/compte.html")));
+// Middleware pour parser les données du formulaire
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// Route pour afficher la page de contact
+app.get('/contact.html', (req, res) => {
+    res.sendFile(__dirname + '/contact.html'); // Remplace avec ton chemin correct
+});
+
+// Route pour traiter le formulaire de contact
+app.post('/send-contact', (req, res) => {
+    const { nom, email, message } = req.body;
+
+    // Configuration de Nodemailer (ici, par exemple, avec un service Gmail)
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'direction.globaltradings@gmail.com',
+            pass: 'fchr zeyo bfan inhv'
+        }
+    });
+
+    const mailOptions = {
+        from: email, // Email de l'expéditeur
+        to: 'baba78450molko@gmail.com', // Ton email où tu veux recevoir les messages
+        subject: 'Question Etudiant',
+        text: `Nom: ${nom}\nEmail: ${email}\nMessage: ${message}`
+    };
+
+    // Envoi de l'email
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return res.status(500).json({ message: 'Erreur lors de l\'envoi du message.' });
+        }
+        res.json({ message: 'Message envoyé avec succès !' });
+    });
+});
 
 
 // Route pour l'inscription
