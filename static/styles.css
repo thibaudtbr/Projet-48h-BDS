@@ -316,3 +316,25 @@ th {
 td:focus {
   background-color: #ffff99;
 }
+#registerForm input {
+ width: 50%;
+ text-align: center;
+}
+#registerForm button {
+  width: 51%;
+}
+#registerForm {
+  text-align: center;
+  align-items: center;
+}
+#loginForm input {
+  width: 50%;
+  text-align: center; 
+}
+#loginForm button {
+  width: 51%;
+}
+#loginForm {
+  text-align: center;
+  align-items: center;
+}

@@ -1,6 +1,7 @@
 const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
 const bcrypt = require("bcrypt");
+const session = require("express-session");
 const path = require("path");
 
 const app = express();
@@ -14,6 +15,14 @@ const db = new sqlite3.Database("./data_base_bds.db", (err) => {
         console.log("Connexion réussie à SQLite !");
     }
 });
+
+// Middleware pour gérer les sessions
+app.use(session({
+    secret: 'tonSecretDeSession', // Remplace ça par un secret sécurisé
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }  // Mettre à true si tu utilises HTTPS
+}));
 
 // Middleware pour le traitement des données JSON et URL-encoded
 app.use(express.json());
@@ -30,6 +39,8 @@ app.get("/evenement.html", (req, res) => res.sendFile(path.join(__dirname, "/tem
 app.get("/contact.html", (req, res) => res.sendFile(path.join(__dirname, "/templates/contact.html")));
 app.get("/login.html", (req, res) => res.sendFile(path.join(__dirname, "/templates/login.html")));
 app.get("/register.html", (req, res) => res.sendFile(path.join(__dirname, "/templates/register.html")));
+app.get("/compte.html", (req, res) => res.sendFile(path.join(__dirname, "/templates/compte.html")));
+
 
 // Route pour l'inscription
 app.post("/register", (req, res) => {
@@ -66,7 +77,6 @@ app.post("/register", (req, res) => {
     });
 });
 
-
 // Route pour la connexion
 app.post("/login", (req, res) => {
     const { email, password } = req.body;
@@ -90,12 +100,58 @@ app.post("/login", (req, res) => {
             if (err || !result) {
                 return res.status(400).json({ message: "Mot de passe incorrect" });
             }
-
-            // Connexion réussie
+ // Si la connexion est réussie, on stocke l'utilisateur dans la session
+            req.session.userId = user.id;  // Ici, on stocke l'ID de l'utilisateur dans la session
             res.status(200).json({ message: "Connexion réussie", user });
         });
     });
 });
+
+// Vérifier si l'utilisateur est connecté
+function isAuthenticated(req, res, next) {
+    if (req.session.userId) {
+        return next();
+    } else {
+        return res.status(401).json({ message: "Utilisateur non authentifié" });
+    }
+}
+
+// Exemple d'une route protégée, accessible seulement si l'utilisateur est connecté
+app.get("/profile", isAuthenticated, (req, res) => {
+    // Ici, tu pourrais récupérer et afficher les informations de l'utilisateur
+    res.json({ message: "Page de profil", userId: req.session.userId });
+});
+app.get("/", (req, res) => {
+    // Vérifie si l'utilisateur est connecté
+    const isLoggedIn = req.session.userId ? true : false;
+    res.render("index.html", { isLoggedIn });
+});
+app.get("/check-session", (req, res) => {
+    // Vérifie si la session est active (si l'utilisateur est connecté)
+    if (req.session.userId) {
+        res.json({ isLoggedIn: true });
+    } else {
+        res.json({ isLoggedIn: false });
+    }
+});
+app.get("/profile", (req, res) => {
+    if (req.session.userId) {
+        // L'utilisateur est connecté, on lui envoie la page avec son nom
+        res.render("profile.html", { username: req.session.username });
+    } else {
+        // Si l'utilisateur n'est pas connecté, on le redirige vers la page de connexion
+        res.redirect("/login.html");
+    }
+});
+app.get("/logout", (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            return res.status(500).json({ message: "Erreur lors de la déconnexion" });
+        }
+        res.redirect("/login.html");  // Redirige l'utilisateur vers la page de connexion
+    });
+});
+
 
 // Lancer le serveur
 app.listen(PORT, () => {
