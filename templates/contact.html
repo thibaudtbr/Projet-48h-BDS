@@ -3,48 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bureau Des Sports - École</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="../static/styles.css">
 </head>
 <body>
     <header>
 
-        <img src="../static/logo.jpeg" alt="Tournoi de football">
+        <img src="../static/logo.png" alt="Tournoi de football">
         <div class="texte">
-        <h1>Bienvenue sur le site du BDS</h1>
+        <h1>Contact</h1>
         <nav>
             <ul>
                 <li><a href="../templates/index.html">Présentation</a></li>
                 <li><a href="../templates/evenements.html">Événements</a></li>
-                <li><a href="../templates/galerie.html">Galerie</a></li>
+                <li><a href="../templates/galerie.html">Membre du BDS</a></li>
                 <li><a href="../templates/contact.html">Contact</a></li>
             </ul>
         </nav>
         </div>
-        <img src="../static/logo.jpeg" alt="Tournoi de football">
     </header>
+
     
-    <section id="contact">
-        <h2>Contactez-nous</h2>
-        <form>
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" required>
-            
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="message">Message :</label>
-            <textarea id="message" name="message" required></textarea>
-            
-            <button type="submit">Envoyer</button>
-        </form>
-    </section>
-    
+    <container>
+        <contact>
+            <h2>Contactez-nous</h2>
+            <form>
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" required>
+                
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">Envoyer</button>
+            </form>
+        </contact>
+    </container>
+    <footer>
+        <div>
+            <a href="https://www.instagram.com/bdsynovparis/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+            </a>
+            <a href="https://l.instagram.com/?u=https%3A%2F%2Flinktr.ee%2Fbdsynovparis%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAabic8ii1ppthveK3oMTMMVgw9dhZ3YSM7R8qTXtVrwfXrb9-2H_66yTo40_aem_v3M_Diigp6xgdzrU0LQRFg&e=AT1lrhmWpSoytOYcxem4J00XmgZoQ9zepS5eazTdNQ5fzP-bhaML_EzcXA4U9u0jYZSIjEvHUjzRQpsweOTuWlNgsrNEXbPtISRiqQ" target="_blank">
+                <img src="../static/logobds.png" alt="BDS">
+            </a>
+            <a href="https://discord.gg/kWeFZa38" target="_blank">
+                <img src="https://seeklogo.com/images/D/discord-color-logo-E5E6DFEF80-seeklogo.com.png" alt="Discord" width="40">
+            </a>
+        </div>
+    </footer>
+        
+
 </body>
-<footer class="footer">
-    <p>&copy; 2024 Bureau Des Sports - Ynov | Tous droits réservés.</p>
-</footer>
-
-
-
 </html>
