@@ -8,80 +8,108 @@
 </head>
 <body>
     <header>
+
         <img src="static/logo.png" alt="Tournoi de football">
         <div class="texte">
-            <h1>Bienvenue sur le site du BDS</h1>
-            <nav>
-                <ul>
-                    <li><a href="/">Présentation</a></li>
-                    <li><a href="/evenement.html">Événements</a></li>
-                    <li><a href="/galerie.html">Membre du BDS</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
-                    <!-- Ajout de la vérification pour l'affichage dynamique des liens -->
-                    <li id="connexionLink"><a href="/login.html">Connexion</a></li>
-                    <li id="inscriptionLink"><a href="/register.html">Inscription</a></li>
-                    <li id="compteLink" style="display:none;"><a href="/compte.html">Mon compte</a></li>
-                </ul>
-            </nav>
+        <h1>Bienvenue sur le site du BDS</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Présentation</a></li>
+                <li><a href= "/evenement.html">Événements</a></li>
+                <li><a href="/galerie.html">Membre du BDS</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/login.html">Connexion</a></li>
+                <li><a href="/register.html">Inscription</a></li>
+            </ul>
+        </nav>
         </div>
     </header>
     
     <bienvenue>
-        <h2>Qui sommes-nous ?</h2>
-        <h3><p>
-            Le Bureau des Sports (BDS) de Paris Ynov Campus est l'association étudiante dédiée aux passionnés de sport et aux amateurs de sensations fortes. Notre mission ? Promouvoir la pratique sportive au sein du campus, organiser des événements et rassembler les étudiants autour de valeurs comme l'esprit d'équipe, le dépassement de soi et la convivialité.
-            <br> <br>
-            Que vous soyez débutant ou athlète confirmé, le BDS propose une large gamme d'activités : tournois, entraînements, sorties sportives et bien plus encore. Rejoignez-nous et vivez une expérience étudiante dynamique et enrichissante !
-        </p></h3>
-    </bienvenue>
-    
-    <section id="presentation">
-        <div class="titrebds">
-            <h2>Nos Membres</h2>
-        </div>
-        <main class="carousel-container">
-            <div class="carousel">
-              <div class="item active">
-                <img src="../static/membre du BDS/Amelie.png" alt="Image 1" />
-                <p class="caption">Caption for Image 1</p>
-              </div>
-              <div class="item">
-                <img src="../static/membre du BDS/Augustin.png" alt="Image 2" />
-                <p class="caption">Caption for Image 2</p>
-              </div>
-              <div class="item">
-                <img src="../static/membre du BDS/Jia-Bao.png" alt="Image 3" />
-                <p class="caption">Caption for Image 3</p>
-              </div>
+      <h2>Qui sommes-nous ?</h2>
+      <h3><p>
+        Le Bureau des Sports (BDS) de Paris Ynov Campus est l'association étudiante dédiée aux passionnés de sport et aux amateurs de sensations fortes. Notre mission ? Promouvoir la pratique sportive au sein du campus, organiser des événements et rassembler les étudiants autour de valeurs comme l'esprit d'équipe, le dépassement de soi et la convivialité.
+        <br> <br>
+        Que vous soyez débutant ou athlète confirmé, le BDS propose une large gamme d'activités : tournois, entraînements, sorties sportives et bien plus encore. Rejoignez-nous et vivez une expérience étudiante dynamique et enrichissante !
+      </p>
+    </h3>
+
+  </bienvenue>
+  
+  <section id="presentation">
+      <div class="titrebds">
+      <h2>Nos Membres</h2>
+      </div>
+      <main class="carousel-container">
+          <div class="carousel">
+            <div class="item active">
+              <img src="../static/membre du BDS/Amelie.png" alt="Image 1" />
+              <p class="caption">Caption for Image 1</p>
             </div>
-            <button class="btn prev">&#9664;</button>
-            <button class="btn next">&#9654;</button>
-            <div class="dots"></div>
+            <div class="item">
+              <img src="../static/membre du BDS/Augustin.png" alt="Image 2" />
+              <p class="caption">Caption for Image 2</p>
+            </div>
+            <div class="item">
+              <img src="../static/membre du BDS/Jia-Bao.png" alt="Image 3" />
+              <p class="caption">Caption for Image 3</p>
+            </div>
+          </div>
+          <button class="btn prev">&#9664;</button>
+          <button class="btn next">&#9654;</button>
+          <div class="dots"></div>
         </main>
-    </section>  
-    
-    <script src="../back/script.js"></script>
-    <script>
-        // Vérification de la session via un appel API
-        async function checkSession() {
-            const response = await fetch('/check-session');
-            const result = await response.json();
+  </section>  
+<script src="../back/script.js"></script>
 
-            if (result.isLoggedIn) {
-                // Si connecté, remplacer les liens Connexion et Inscription par Mon compte
-                document.getElementById("connexionLink").style.display = "none";
-                document.getElementById("inscriptionLink").style.display = "none";
-                document.getElementById("compteLink").style.display = "block";
-            } else {
-                // Sinon, afficher les liens Connexion et Inscription
-                document.getElementById("connexionLink").style.display = "block";
-                document.getElementById("inscriptionLink").style.display = "block";
-                document.getElementById("compteLink").style.display = "none";
-            }
-        }
+<membre>
+<h1> 
+  Vous trouverez si dessous l'équipe du BDS :
+</h1>
+<script>
+function penModal() {
+    document.getElementById("imageModa").style.display = "flex";
+}
+function loseModal() {
+    document.getElementById("imageModa").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<img src="../static/equipe bds.png" alt="Aperçu" class="thumbnail" onclick="penModal()">
+</div>
+<div id="imageModa" class="modal" onclick="loseModal()">
+<img src="../static/equipe bds.png" alt="Image Agrandie">
+</div>
+<h1> et vous trouverez aussi une page avec les membres du BDS qui on chacun leurs bulles : </h1>
+<a href="../templates/galerie.html">Membre du BDS</a>
+</membre>
 
-        // Appeler la fonction pour vérifier la session dès que la page est chargée
-        checkSession();
-    </script>
+<event>
+<h1> 
+  Vous trouverez si dessous plus d'information pour le gymnase :
+</h1>
+<script>
+function openModal() {
+    document.getElementById("imageModal").style.display = "flex";
+}
+function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div>
+<img src="../static/gymnase.png" alt="Aperçu" class="thumbnail" onclick="openModal()">
+</div>
+<div id="imageModal" class="modal" onclick="closeModal()">
+<img src="../static/gymnase.png" alt="Image Agrandie">
+</div>
+<h1> et si vous voulez voir plus d'événements organiser par le BDS vous trouverezle liens vers la page des evenements jsute ne dessous : </h1>
+<a href="../templates/evenements.html">Événements</a>
+</event>
+
 </body>
+
 </html>

@@ -17,16 +17,74 @@ header {
     display: flex; /* Aligne l'image et le texte sur la même ligne */
     align-items: center; /* Centre verticalement */
     justify-content: center;
+    padding: 10px 20px;
 }
 header img {
   width: 120px;
   height: auto;
   border-radius: 10px;
+  text-align: left;
+}
+text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
 }
 
-.text{
+bienvenue {
+  display: block;
+  width: 600px;
+  padding: 20px;
+  background-color: #858376;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 50px auto;
 }
+
+bienvenue h2 {
+  color: #000000; /* Change la couleur du texte (bleu dans cet exemple) */
+    font-family: "Arial", sans-serif; /* Change la police (Arial par défaut) */
+    font-size: 24px; /* Ajuste la taille du texte */
+    font-weight: bold; /* Rend le texte en gras */
+}
+
+
+.thumbnail {
+  width: 200px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+}
+
+.modal:target {
+  display: flex;
+}
+
 section {
   margin: 40px auto;
   padding: 30px;
@@ -47,7 +105,7 @@ nav ul {
 }
 
 nav ul li {
-  display: inline;
+  display: flex;
 }
 
 nav ul li a {
@@ -316,25 +374,136 @@ th {
 td:focus {
   background-color: #ffff99;
 }
+
+
+membre {
+  padding: 20px;
+  width: 500px;
+  background: #858376;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  display: block;
+  margin: 50px auto;
+}
+
+membre img.profil {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+membre h2 {
+  font-size: 24px;
+  color : #FFFFFF;
+  margin: 10px 0;
+}
+
+membre p {
+  font-size: 14px;
+  color: #FFFFFF;
+  margin: 10px 15px;
+}
+
+membre a img {
+  width: 24px;
+  margin-top: 10px;
+}
+
+event {
+  padding: 20px;
+  width: 500px;
+  background: #858376;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  display: block;
+  margin: 50px auto;
+}
+
+event img.profil {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+event h2 {
+  font-size: 24px;
+  color : #FFFFFF;
+  margin: 10px 0;
+}
+
+event p {
+  font-size: 14px;
+  color: #FFFFFF;
+  margin: 10px 15px;
+}
+
+event a img {
+  width: 24px;
+  margin-top: 10px;
+}
+/* Style général du calendrier */
+.fc {
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* Rendre les dates visibles */
+.fc-daygrid-day-number {
+  color: #333 !important; /* Couleur foncée pour le texte */
+  font-weight: bold;
+}
+
+/* Rendre les heures lisibles */
+.fc-timegrid-slot {
+  color: #333 !important;
+  font-weight: bold;
+}
+
+/* Amélioration de l'affichage des événements */
+.fc-event {
+  background-color: #17a2b8 !important; /* Bleu */
+  border: none !important;
+  border-radius: 5px !important;
+  color: white !important;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Améliorer le contraste des titres */
+.fc-toolbar-title {
+  color: #007bff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 #registerForm input {
- width: 50%;
- text-align: center;
-}
-#registerForm button {
-  width: 51%;
-}
-#registerForm {
-  text-align: center;
-  align-items: center;
-}
-#loginForm input {
   width: 50%;
-  text-align: center; 
-}
-#loginForm button {
-  width: 51%;
-}
-#loginForm {
   text-align: center;
-  align-items: center;
-}
+ }
+ #registerForm button {
+   width: 51%;
+ }
+ #registerForm {
+   text-align: center;
+   align-items: center;
+ }
+ #loginForm input {
+   width: 50%;
+   text-align: center; 
+ }
+ #loginForm button {
+   width: 51%;
+ }
+ #loginForm {
+   text-align: center;
+   align-items: center;
+ }
