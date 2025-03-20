@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bureau Des Sports - École</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <header>
+
+        <img src="../static/logo.png" alt="Tournoi de football">
+        <div class="texte">
+        <h1>Événements</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Présentation</a></li>
+                <li><a href= "/evenement.html">Événements</a></li>
+                <li><a href="/galerie.html">Membre du BDS</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        </div>
+    </header>
+    
+    <section id="evenements" class="section-container">
+        <h2>Événements à venir</h2>
+        <div class="event-box">
+            <p><strong>Tournoi de football</strong> - 15 avril</p>
+            <button class="inscription-btn">S'inscrire</button>
+        </div>
+        <div class="event-box">
+            <p><strong>Compétition de natation</strong> - 22 avril</p>
+            <button class="inscription-btn">S'inscrire</button>
+        </div>
+        <div class="event-box">
+            <p><strong>Course inter-écoles</strong> - 5 mai</p>
+            <button class="inscription-btn">S'inscrire</button>
+        </div>
+    </section>
+
+    <h1>Planning BDS</h1>
+    <button onclick="addRow()">Ajouter une ligne</button>
+    <table id="planningTable">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Jour</th>
+                <th>Événement</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td contenteditable="true">01/09/2025</td>
+                <td contenteditable="true">Lundi</td>
+                <td contenteditable="true">Gymnase (Basket)</td>
+                <td><button onclick="deleteRow(this)">Supprimer</button></td>
+            </tr>
+            <tr>
+                <td contenteditable="true">02/09/2025</td>
+                <td contenteditable="true">Mardi</td>
+                <td contenteditable="true">Chasse à l'homme</td>
+                <td><button onclick="deleteRow(this)">Supprimer</button></td>
+            </tr>
+            <tr>
+                <td contenteditable="true">03/09/2025</td>
+                <td contenteditable="true">Mercredi</td>
+                <td contenteditable="true"></td>
+                <td><button onclick="deleteRow(this)">Supprimer</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="scrip.js"></script>
+    
+
+</body>
+</html>

@@ -16,7 +16,7 @@ header {
     text-align: center;
     display: flex; /* Aligne l'image et le texte sur la même ligne */
     align-items: center; /* Centre verticalement */
-    gap: 555px;
+    justify-content: center;
 }
 header img {
   width: 120px;
@@ -24,8 +24,9 @@ header img {
   border-radius: 10px;
 }
 
-
-
+.text{
+  text-align: center;
+}
 section {
   margin: 40px auto;
   padding: 30px;
