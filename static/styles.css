@@ -1,12 +1,14 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #1D1D1B;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1D1D1B;
+  color: white;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 60px; /* Ajuste la hauteur du footer */
+  box-sizing: border-box;
 }
-
-
-
 header {
     background: #0B2294;
     color: white;
@@ -15,198 +17,301 @@ header {
     display: flex; /* Aligne l'image et le texte sur la même ligne */
     align-items: center; /* Centre verticalement */
     gap: 555px;
-    height: 100px;
 }
 header img {
-    width: 150px; /* Taille de l'image */
-    height: auto; /* Garde le ratio original */
-    border-radius: 10px; /* Coins arrondis */
-    
+  width: 120px;
+  height: auto;
+  border-radius: 10px;
 }
-texte {
-    text-align: center; /* Centre le texte horizontalement */
+
+
+
+section {
+  margin: 40px auto;
+  padding: 30px;
+  max-width: 600px ;
+  background: #a8a7ac;
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: #1D1D1B;
 }
 
 nav ul {
-    list-style: none;
-    padding: 0; 
-    text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 25px;
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+  display: inline;
 }
 
 nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-section {
-    margin: 20px;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+nav ul li a:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.section-container {
+  margin: 50px auto;
+  padding: 40px;
+  max-width: 1000px;
+  background: #a8a7ac;
+  border-radius: 12px;
+  box-shadow: 0px 6px 20px rgba(255, 255, 255, 0.3);
+  text-align: center;
 }
 
 h2 {
-    color: #2c3e50;
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
+.event-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #949494;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
+  margin-bottom: 15px;
+  border-color: #000000;
+  
+}
+
+.inscription-btn {
+  padding: 10px 15px;
+  background: #0B2294;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
+  transition: background 0.3s;
+}
+
+.inscription-btn:hover {
+  background: #062277;
+}
 img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin: 10px 0;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin: 10px 0;
 }
 
-
-
-contact {
-    display: block;
-    width: 500px;
-    padding: 20px;
-    background-color: #858376;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    font-family: Arial, sans-serif;
-    margin: 50px auto;
-}
-
-contact h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: #1D1D1B;
-}
-
-contact form {
+form {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
-contact label {
-    font-size: 14px;
-    font-weight: bold;
+label {
     margin-top: 10px;
-    text-align: left;
-    width: 100%;
-    color: #1D1D1B;
 }
 
-contact input, contact textarea {
-    width: 100%;
+input, textarea {
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 14px;
 }
 
-contact textarea {
-    height: 100px;
-    resize: none;
-}
-
-contact button {
-    margin-top: 15px;
-    padding: 10px 15px;
-    background-color: #F7E5A3; /* Rouge Ferrari */
-    color: #1D1D1B;
-    font-size: 16px;
+button {
+    margin-top: 10px;
+    padding: 10px;
+    background: #2c3e50;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s ease;
 }
 
-contact button:hover {
-    background-color: #cc0000;
+button:hover {
+    background: #1a252f;
 }
 
 footer {
-    background-color: #000000; /* Couleur du footer */
     text-align: center;
-    padding: 15px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    padding: 15px;
+    background: #2c3e50;
+    color: white;
+    margin-top: 20px;
+}
+
+contact {
+  display: block;
+  width: 500px;
+  padding: 20px;
+  background-color: #858376;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 50px auto;
+}
+
+contact h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #1D1D1B;
+}
+
+contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+contact label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: left;
+  width: 100%;
+  color: #1D1D1B;
+}
+
+contact input, contact textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+contact textarea {
+  height: 100px;
+  resize: none;
+}
+
+contact button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #F7E5A3; /* Rouge Ferrari */
+  color: #1D1D1B;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+contact button:hover {
+  background-color: #cc0000;
+}
+
+footer {
+  background-color: #000000; /* Couleur du footer */
+  text-align: center;
+  padding: 15px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 footer div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 25px; /* Espace entre les icônes */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px; /* Espace entre les icônes */
 }
 
 footer img {
-    width: 30px; /* Taille des icônes */
-    height: auto;
-    border-radius: 50%; /* Arrondi pour l'image BDS */
-    transition: transform 0.3s ease; /* Animation au survol */
+  width: 30px; /* Taille des icônes */
+  height: auto;
+  border-radius: 50%; /* Arrondi pour l'image BDS */
+  transition: transform 0.3s ease; /* Animation au survol */
 }
 
 footer img:hover {
-    transform: scale(1.2); /* Effet zoom au survol */
+  transform: scale(1.2); /* Effet zoom au survol */
 }
 
 
 
 
 insta {
-    padding: 20px;
-    width: 300px;
-    background: #858376;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    font-family: Arial, sans-serif;
-    display: block;
-    margin: 50px auto;
+  padding: 20px;
+  width: 300px;
+  background: #858376;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  display: block;
+  margin: 50px auto;
 }
 
 insta img.profil {
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    object-fit: cover;
-    margin-top: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  object-fit: cover;
+  margin-top: 10px;
 }
 
 insta h2 {
-    font-size: 24px;
-    color : #FFFFFF;
-    margin: 10px 0;
+  font-size: 24px;
+  color : #FFFFFF;
+  margin: 10px 0;
 }
 
 insta p {
-    font-size: 14px;
-    color: #FFFFFF;
-    margin: 10px 15px;
+  font-size: 14px;
+  color: #FFFFFF;
+  margin: 10px 15px;
 }
 
 insta a img {
-    width: 24px;
-    margin-top: 10px;
+  width: 24px;
+  margin-top: 10px;
 }
 
- test {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
- }
- container {
-    display: flex;
-    justify-content: center; /* Centre les éléments horizontalement */
-    align-items: flex-start; /* Alignement en haut */
-    flex-wrap: wrap; /* Permet de passer à la ligne si l’espace est insuffisant */
-    gap: 20px; /* Espacement entre les blocs */
-    margin: 50px auto;
-    max-width: 100%; /* Empêche le dépassement de l’écran */
-    width: fit-content; /* Ajuste la largeur au contenu */
+test {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+container {
+  display: flex;
+  justify-content: center; /* Centre les éléments horizontalement */
+  align-items: flex-start; /* Alignement en haut */
+  flex-wrap: wrap; /* Permet de passer à la ligne si l’espace est insuffisant */
+  gap: 20px; /* Espacement entre les blocs */
+  margin: 50px auto;
+  max-width: 100%; /* Empêche le dépassement de l’écran */
+  width: fit-content; /* Ajuste la largeur au contenu */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+td:focus {
+  background-color: #ffff99;
 }

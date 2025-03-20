@@ -23,17 +23,56 @@
         </div>
     </header>
     
-    <section id="evenements">
+    <section id="evenements" class="section-container">
         <h2>Événements à venir</h2>
-        <ul>
-            <li>Tournoi de football - 15 avril</li>
-            <li>Compétition de natation - 22 avril</li>
-            <li>Course inter-écoles - 5 mai</li>
-        </ul>
+        <div class="event-box">
+            <p><strong>Tournoi de football</strong> - 15 avril</p>
+            <button class="inscription-btn">S'inscrire</button>
+        </div>
+        <div class="event-box">
+            <p><strong>Compétition de natation</strong> - 22 avril</p>
+            <button class="inscription-btn">S'inscrire</button>
+        </div>
+        <div class="event-box">
+            <p><strong>Course inter-écoles</strong> - 5 mai</p>
+            <button class="inscription-btn">S'inscrire</button>
+        </div>
     </section>
-    
+
+    <h1>Planning BDS</h1>
+    <button onclick="addRow()">Ajouter une ligne</button>
+    <table id="planningTable">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Jour</th>
+                <th>Événement</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td contenteditable="true">01/09/2025</td>
+                <td contenteditable="true">Lundi</td>
+                <td contenteditable="true">Gymnase (Basket)</td>
+                <td><button onclick="deleteRow(this)">Supprimer</button></td>
+            </tr>
+            <tr>
+                <td contenteditable="true">02/09/2025</td>
+                <td contenteditable="true">Mardi</td>
+                <td contenteditable="true">Chasse à l'homme</td>
+                <td><button onclick="deleteRow(this)">Supprimer</button></td>
+            </tr>
+            <tr>
+                <td contenteditable="true">03/09/2025</td>
+                <td contenteditable="true">Mercredi</td>
+                <td contenteditable="true"></td>
+                <td><button onclick="deleteRow(this)">Supprimer</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="scrip.js"></script>
     
 
 </body>
 </html>
-
